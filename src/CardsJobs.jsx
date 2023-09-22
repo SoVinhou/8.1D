@@ -16,8 +16,8 @@ const CardsJobs = (props) => {
   };
 
   return (
-    <div style={{marginBottom:"-100px"}}> 
-        <div className="column" onClick={toggleShowAll}>
+    <div> 
+        <div className="column" onClick={toggleShowAll} style={{ maxWidth: "500px" }}>
             {props.image && (
                 <img
                 src={props.image}
@@ -27,11 +27,11 @@ const CardsJobs = (props) => {
             )}
             <h3 style={{ fontSize: "35px"}}>{props.title}</h3>
             {!showAll && <p style={{ fontSize: "25px", fontWeight:"bold"}}>Duration: {props.projectLength}</p>}
-            {!showAll && <p style={{ fontSize: "20px"}}>{props.description}</p>}
+            {!showAll && <p style={{ fontSize: "20px", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis"}}>{props.description}</p>}
             {showAll && (
                 <div>
                 <p style={{ fontSize: "25px", fontWeight:"bold"}}> Duration: {props.projectLength}</p>
-                <p style={{ fontSize: "20px"}}>{props.description}</p>
+                <p style={{ fontSize: "20px", overflow: "hidden", whiteSpace: "pre-wrap", wordWrap: "break-word"}}>{props.description}</p>
                 <ul style={{ fontSize: "18px"}}>
                     <li>Type: {props.type}</li>
                     <li>Skills: {props.skills}</li>
